@@ -1,15 +1,16 @@
 export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  available: boolean;
+  id: string
+  name: string
+  description: string
+  price: number
+  available: boolean
+  imagePath: string
 }
 
 export interface MenuCategory {
-  id: string;
-  category: string;
-  products: Product[];
+  id: string
+  category: string
+  products: Product[]
 }
 
 export const menuData: MenuCategory[] = [
@@ -23,6 +24,7 @@ export const menuData: MenuCategory[] = [
         description: 'Classic pizza with tomato sauce, mozzarella, and basil',
         price: 8.99,
         available: true,
+        imagePath: '/menuItems/pizza-margherita.jpg'
       },
       {
         id: '1be48f7f-1052-42dc-80b7-607ba8a34a7a',
@@ -30,8 +32,9 @@ export const menuData: MenuCategory[] = [
         description: 'Tomato sauce, mozzarella, and pepperoni',
         price: 10.99,
         available: false,
-      },
-    ],
+        imagePath: '/menuItems/pizza-pepperoni.jpg'
+      }
+    ]
   },
   {
     id: 'e48fc123-4c7d-4a8d-b0d4-1a5439f3fc2f',
@@ -43,6 +46,7 @@ export const menuData: MenuCategory[] = [
         description: 'Beef patty, lettuce, tomato, onion, and cheese',
         price: 7.5,
         available: true,
+        imagePath: '/menuItems/burger-beef.jpg'
       },
       {
         id: 'eb9bda67-2f1b-4a8e-b45a-58b8362f25ed',
@@ -50,8 +54,9 @@ export const menuData: MenuCategory[] = [
         description: 'Grilled veggie patty, avocado, tomato, and vegan mayo',
         price: 6.75,
         available: true,
-      },
-    ],
+        imagePath: '/menuItems/burger-veggie.jpg'
+      }
+    ]
   },
   {
     id: '5f42a9e7-e98a-4727-9f3a-0c86b4d6c02b',
@@ -63,6 +68,7 @@ export const menuData: MenuCategory[] = [
         description: 'Chilled 330ml can',
         price: 1.5,
         available: true,
+        imagePath: '/menuItems/drink-cola.jpg'
       },
       {
         id: '39f3ae77-0a70-4c7b-8d8d-cf84c2e5f08d',
@@ -70,7 +76,8 @@ export const menuData: MenuCategory[] = [
         description: 'Fresh homemade lemonade with mint',
         price: 2.0,
         available: true,
-      },
-    ],
-  },
-];
+        imagePath: '/menuItems/drink-lemonade.jpg'
+      }
+    ]
+  }
+]
