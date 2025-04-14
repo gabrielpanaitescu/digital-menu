@@ -1,8 +1,15 @@
 import { Button } from '@/components/ui/button'
 import { useMediaQuery } from '@uidotdev/usehooks'
 import { HandPlatter } from 'lucide-react'
+import { useOpenCart } from '@/hooks/use-open-cart'
 
 const Header = () => {
+  const [_, setOpen] = useOpenCart()
+
+  const handleOpenCart = () => {
+    setOpen(true)
+  }
+
   const isXSDevice = useMediaQuery('only screen and (max-width: 335px)')
   return (
     <div className="fixed top-0 inset-x-0 border shadow-sm flex justify-between items-center py-2 px-2 sm:px-14 bg-white z-50 text-nowrap">
@@ -17,7 +24,7 @@ const Header = () => {
           <span className="text-[0.80em] ">🍕</span>d
         </h3>
       )}
-      <Button>
+      <Button onClick={handleOpenCart}>
         <HandPlatter />
         Order
       </Button>

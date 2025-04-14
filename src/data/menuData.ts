@@ -24,7 +24,7 @@ export const menuData: MenuCategory[] = [
         description: 'Classic pizza with tomato sauce, mozzarella, and basil',
         price: 8.99,
         available: true,
-        imagePath: '/menuItems/pizza-margherita.jpg'
+        imagePath: '/menuItems/pizza-margherita.webp'
       },
       {
         id: '1be48f7f-1052-42dc-80b7-607ba8a34a7a',
@@ -32,7 +32,7 @@ export const menuData: MenuCategory[] = [
         description: 'Tomato sauce, mozzarella, and pepperoni',
         price: 10.99,
         available: false,
-        imagePath: '/menuItems/pizza-pepperoni.jpg'
+        imagePath: '/menuItems/pizza-pepperoni.webp'
       }
     ]
   },
@@ -46,7 +46,7 @@ export const menuData: MenuCategory[] = [
         description: 'Beef patty, lettuce, tomato, onion, and cheese',
         price: 7.5,
         available: true,
-        imagePath: '/menuItems/burger-beef.jpg'
+        imagePath: '/menuItems/burger-beef.webp'
       },
       {
         id: 'eb9bda67-2f1b-4a8e-b45a-58b8362f25ed',
@@ -54,7 +54,7 @@ export const menuData: MenuCategory[] = [
         description: 'Grilled veggie patty, avocado, tomato, and vegan mayo',
         price: 6.75,
         available: true,
-        imagePath: '/menuItems/burger-veggie.jpg'
+        imagePath: '/menuItems/burger-veggie.webp'
       }
     ]
   },
@@ -68,7 +68,7 @@ export const menuData: MenuCategory[] = [
         description: 'Chilled 330ml can',
         price: 1.5,
         available: true,
-        imagePath: '/menuItems/drink-cola.jpg'
+        imagePath: '/menuItems/drink-cola.webp'
       },
       {
         id: '39f3ae77-0a70-4c7b-8d8d-cf84c2e5f08d',
@@ -76,7 +76,7 @@ export const menuData: MenuCategory[] = [
         description: 'Fresh homemade lemonade with mint',
         price: 2.0,
         available: true,
-        imagePath: '/menuItems/drink-lemonade.jpg'
+        imagePath: '/menuItems/drink-lemonade.webp'
       }
     ]
   }
