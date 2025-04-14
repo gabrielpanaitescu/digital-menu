@@ -8,53 +8,52 @@ import {
   CarouselPrevious
 } from '@/components/ui/carousel'
 import { useMediaQuery } from '@uidotdev/usehooks'
-
-import codeSnap from '@/assets/code-snap.png'
 import { menuData } from '@/data/menuData'
+import { useNavigate } from 'react-router-dom'
+import codeSnap from '@/assets/code-snap.png'
 
 const foodItems = menuData
-  .filter((item) => item.category === 'Pizza' || item.category === 'Burgers')
+  .filter((item) => item.name === 'Pizza' || item.name === 'Burgers')
   .map((category) => category.products)
   .flat()
 
 const Home = () => {
   const isSmallDevice = useMediaQuery('only screen and (max-width : 640px)')
+  const navigate = useNavigate()
+
+  const navigateToMenu = () => {
+    navigate('/menu')
+  }
 
   return (
     <div className="h-dvh flex flex-col justify-center gap-y-4 gap-x-3 sm:gap-x-0 sm:gap-y-0 sm:flex-row sm:px-4">
-      <div className="px-8 space-y-3 sm:self-center">
-        <h1 className="scroll-m-20 text-3xl sm:text-4xl font-extrabold tracking-tight lg:text-5xl font-mono">
+      <div className="flex flex-col items-center px-8 space-y-3 sm:block sm:self-center">
+        <h1 className="text-center scroll-m-20 text-3xl sm:text-4xl font-extrabold tracking-tight font-mono sm:text-start lg:text-5xl">
           stacked || sliced
         </h1>
 
-        <p className="text-md sm:text-xl text-muted-foreground">
+        <p className="text-center text-md text-muted-foreground sm:text-justify sm:text-xl">
           Can't decide between the usual suspects? Check out our menu and
           satisfy your craving. Two classics, both top quality, under the same
           roof!
         </p>
-        {isSmallDevice ? (
-          <Button variant="default" size="lg">
-            START ORDER
-          </Button>
-        ) : (
-          <Button variant="default" size="lg">
-            START ORDER
-          </Button>
-        )}
+        <Button variant="default" size="lg" onClick={navigateToMenu}>
+          START ORDER
+        </Button>
         <img
           src={codeSnap}
           alt="code-snippet"
           className="rounded-md w-96 hidden sm:block"
         />
       </div>
-      <div className=" sm:flex sm:my-auto">
+      <div className="sm:flex sm:my-auto">
         <Carousel
           opts={{
             align: 'center',
             loop: true
           }}
           orientation={isSmallDevice ? 'horizontal' : 'vertical'}
-          plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+          plugins={[Autoplay({ delay: 3500, stopOnInteraction: false })]}
         >
           <CarouselContent className="-mt-1 h-[350px] sm:h-[75dvh]">
             {foodItems.map((foodItem, index) => (
