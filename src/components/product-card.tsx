@@ -52,7 +52,7 @@ const ProductCard = ({ product }: PropTypes) => {
         </div>
         <img
           src={product.imagePath}
-          className="h-full rounded-sm"
+          className="h-full rounded-r-xl"
           alt={product.name}
         />
       </Card>

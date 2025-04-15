@@ -14,8 +14,7 @@ import codeSnap from '@/assets/code-snap.png'
 
 const foodItems = menuData
   .filter((item) => item.name === 'Pizza' || item.name === 'Burgers')
-  .map((category) => category.products)
-  .flat()
+  .flatMap((category) => category.products)
 
 const Home = () => {
   const isSmallDevice = useMediaQuery('only screen and (max-width : 640px)')

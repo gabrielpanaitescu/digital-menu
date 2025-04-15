@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 type OpenCartContextType = [
   boolean,
@@ -8,11 +8,11 @@ type OpenCartContextType = [
 const OpenCartContext = createContext<null | OpenCartContextType>(null)
 
 export const useOpenCart = () => {
-  const context = useContext(OpenCartContext)
-  if (!context)
+  const state = useContext(OpenCartContext)
+  if (!state)
     throw new Error('useOpenCart must be used within OpenCartContextProvider')
 
-  return context
+  return state
 }
 
 type PropTypes = {

@@ -6,18 +6,20 @@ import {
   CredenzaDescription,
   CredenzaFooter,
   CredenzaHeader,
-  CredenzaTitle,
-  CredenzaTrigger
+  CredenzaTitle
 } from '@/components/ui/credenza'
 import { Product } from '@/data/menuData'
 import React, { useEffect, useState } from 'react'
 import { Button } from './ui/button'
 import { ShoppingCartIcon } from 'lucide-react'
-import QuantityInputBasic from './commerce-ui/quantity-input-basic'
+import QuantityInputBasic from './ui/quantity-input-basic'
 import Price from './price'
 import { Switch } from './ui/switch'
 import { Label } from './ui/label'
 import { XCircleIcon } from 'lucide-react'
+import { useAvailabilityToggle } from '@/hooks/use-menu'
+import { useCart } from '@/hooks/use-cart'
+import { useOpenCart } from '@/hooks/use-cart'
 
 type PropTypes = {
   product: Product
@@ -28,10 +30,9 @@ type PropTypes = {
 const ProductModal = ({ product, open, setOpen }: PropTypes) => {
   const [quantity, setQuantity] = useState(1)
   const [finalPrice, setFinalPrice] = useState(product.price)
-
-  const handleQuantityChange = (newQuantity: number) => {
-    setQuantity(newQuantity)
-  }
+  const toggleAvailability = useAvailabilityToggle()
+  const { addToCart, cartItems } = useCart()
+  const [_, setOpenCart] = useOpenCart()
 
   useEffect(() => {
     if (open === true) {
@@ -39,6 +40,19 @@ const ProductModal = ({ product, open, setOpen }: PropTypes) => {
       setFinalPrice(product.price)
     }
   }, [open])
+
+  const handleToggleAvailability = (id: string) => {
+    toggleAvailability(id)
+  }
+
+  const handleQuantityChange = (newQuantity: number) => {
+    setQuantity(newQuantity)
+  }
+
+  const handleAddToCart = () => {
+    addToCart(product.id, quantity)
+    setOpenCart(true)
+  }
 
   return (
     <Credenza open={open} onOpenChange={setOpen}>
@@ -60,8 +74,11 @@ const ProductModal = ({ product, open, setOpen }: PropTypes) => {
 
         <CredenzaBody className="flex flex-col items-center space-y-2">
           <div className="flex items-center space-x-2">
-            <Switch id="airplane-mode" />
-            <Label htmlFor="airplane-mode">Toggle item availability</Label>
+            <Switch
+              id="airplane-mode"
+              onClick={() => handleToggleAvailability(product.id)}
+            />
+            <Label htmlFor="airplane-mode">Available</Label>
           </div>
           <div>
             {product.available ? (
@@ -82,7 +99,10 @@ const ProductModal = ({ product, open, setOpen }: PropTypes) => {
           </CredenzaClose>
           <CredenzaClose asChild>
             {product.available ? (
-              <Button className={'bg-green-700 hover:bg-green-600 flex-1'}>
+              <Button
+                className={'bg-green-700 hover:bg-green-600 flex-1'}
+                onClick={handleAddToCart}
+              >
                 <ShoppingCartIcon /> ${(finalPrice * quantity).toFixed(2)}
               </Button>
             ) : (

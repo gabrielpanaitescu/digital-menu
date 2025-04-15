@@ -1,10 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { useMediaQuery } from '@uidotdev/usehooks'
 import { HandPlatter } from 'lucide-react'
-import { useOpenCart } from '@/hooks/use-open-cart'
+import { useCart, useOpenCart } from '@/hooks/use-cart'
 
 const Header = () => {
   const [_, setOpen] = useOpenCart()
+  const { getCartTotal } = useCart()
+
+  const cartTotal = getCartTotal().toFixed(2)
 
   const handleOpenCart = () => {
     setOpen(true)
@@ -25,8 +28,7 @@ const Header = () => {
         </h3>
       )}
       <Button onClick={handleOpenCart}>
-        <HandPlatter />
-        Order
+        <HandPlatter />${cartTotal}
       </Button>
     </div>
   )
