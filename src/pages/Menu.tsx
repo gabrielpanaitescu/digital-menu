@@ -3,7 +3,6 @@ import MenuCategorySection from '@/components/category-section'
 import Header from '@/components/header'
 import { Separator } from '@/components/ui/separator'
 import { useMenuData } from '@/contexts/menu-data-context'
-import MenuBar from '@/components/menu-bar'
 import {
   Select,
   SelectContent,
@@ -23,9 +22,6 @@ const Menu = () => {
     categorySelect === 'All'
       ? data
       : data.filter((category) => category.name === categorySelect)
-
-  console.log('categorySelect', categorySelect)
-  console.log('selectedCategory', selectedCategory)
 
   return (
     <>

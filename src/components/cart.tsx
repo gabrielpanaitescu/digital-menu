@@ -9,8 +9,6 @@ import { useCart } from '@/hooks/use-cart'
 import { useOpenCart } from '@/hooks/use-cart'
 import { Button } from './ui/button'
 import { CreditCardIcon } from 'lucide-react'
-import QuantityInputBasic from './ui/quantity-input-basic'
-import { useState } from 'react'
 import CartProduct from './cart-product'
 
 const Cart = () => {
@@ -19,8 +17,6 @@ const Cart = () => {
 
   const cartProducts = getCartProducts()
   const cartTotal = getCartTotal()
-
-  console.log('cartProducts', cartProducts)
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>

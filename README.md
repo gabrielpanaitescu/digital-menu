@@ -1,8 +1,10 @@
 # 🍽️ Digital Menu - Expressoft
 
-## 🍔🍕 'stacked || sliced'
+## 🍔🍕 stacked || sliced
 
-- Brand designed as a burger and pizza place, with a little bit of a programming theme
+- Designed as a burger and pizza place, with a little bit of a programming theme
+
+![Home page preview](public/home-page.webp)
 
 ## Start
 

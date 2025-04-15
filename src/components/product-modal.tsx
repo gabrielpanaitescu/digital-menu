@@ -75,10 +75,10 @@ const ProductModal = ({ product, open, setOpen }: PropTypes) => {
         <CredenzaBody className="flex flex-col items-center space-y-2">
           <div className="flex items-center space-x-2">
             <Switch
-              id="airplane-mode"
-              onClick={() => handleToggleAvailability(product.id)}
+              checked={product.available}
+              onCheckedChange={() => handleToggleAvailability(product.id)}
             />
-            <Label htmlFor="airplane-mode">Available</Label>
+            <Label>Available</Label>
           </div>
           <div>
             {product.available ? (
@@ -95,7 +95,7 @@ const ProductModal = ({ product, open, setOpen }: PropTypes) => {
         </CredenzaBody>
         <CredenzaFooter className="flex flex-row">
           <CredenzaClose asChild>
-            <Button className="flex-1">Close</Button>
+            <Button className="flex-1">Cancel</Button>
           </CredenzaClose>
           <CredenzaClose asChild>
             {product.available ? (
