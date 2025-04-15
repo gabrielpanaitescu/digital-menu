@@ -12,28 +12,27 @@
 ## Intro
 
 - Fully responsive on all devices, supporting screen sizes as low as 300px
-- Dynamic product details displayed as modals for medium screen and drawers for smaller screen
+- Dynamic product details displayed as modals for larger than medium screen and drawers for everything smaller
 - This website is designed to be used from a mobile phone, tablet or PC by:
   - Customers as 'clients' in order to view the menu and order
-  - Staff as 'admins' (default on local state implicitly) in order to make modifications (ex: change menu availability).
-- This is just a demo, separate front-end versions could be created for in-restaurant tablets or POS solutions, connected to the same API
+  - Staff as 'admins' (default as no auth is implemented) in order to make modifications (ex: change menu availability).
 
 ### Notes
 
-- Currently, all 5 core tasks completed. Bonus: Responsive layout and Modal view
+- All core tasks completed. Bonus: Responsive layout and Modal view
 - localStorage is used to simulate persistent data upon page refresh (ex: cart items) and updates (ex: availability toggling)
-- OpenCartContext, MenuDataContext and CartItemsContext were implemented to avoid prop drilling
-- useCart custom hook created to handle local state management for cart
-- useAvailabilityToggle custom hook created to handle availability toggling
+- useContext was used to avoid prop drilling, with custom implemented hooks:
+  - useCart custom hook created to handle local state management for cart
+  - useAvailabilityToggle custom hook created to handle availability toggling
 
 ### Further to dos / improvements
 
 - Disable checkout button if items have been disabled after adding them to cart
 - Search and Sort
-- Minimize rerenders
+- Buttons directly on cards for interacting with the cart
+- Reduce rerenders
 - Fix linting errors
 - Add component unit tests
-- Buttons directly on cards for interacting with the cart
 
 #### Credits + Tech Stack upgrades 🚀
 
