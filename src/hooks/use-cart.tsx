@@ -29,14 +29,18 @@ const useCart = () => {
       return
     }
 
-    setCartItems([...currentCartItems, { id, quantity }])
+    const newCartItems = [...currentCartItems, { id, quantity }]
+    setCartItems(newCartItems)
+    localStorage.setItem('cartItems', JSON.stringify(newCartItems))
   }
 
   const removeItem = (id: string) => {
     const foundItem = cartItems.find((item) => item.id === id)
     if (!foundItem) throw new Error('Item not in cart')
 
-    setCartItems(cartItems.filter((item) => item.id !== id))
+    const newCartItems = cartItems.filter((item) => item.id !== id)
+    setCartItems(newCartItems)
+    localStorage.setItem('cartItems', JSON.stringify(newCartItems))
   }
 
   const updateItem = (id: string, quantity: number) => {
@@ -47,7 +51,11 @@ const useCart = () => {
 
     const updatedItem = { ...foundItem, quantity }
 
-    setCartItems(cartItems.map((item) => (item.id === id ? updatedItem : item)))
+    const newCartItems = cartItems.map((item) =>
+      item.id === id ? updatedItem : item
+    )
+    setCartItems(newCartItems)
+    localStorage.setItem('cartItems', JSON.stringify(newCartItems))
   }
 
   const getCartProducts = (): CartProductType[] => {

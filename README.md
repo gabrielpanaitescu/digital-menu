@@ -6,10 +6,8 @@
 
 ## Start
 
-- Quick preview: 🏗️ WIP
-- Local dev environment:
-  - npm install
-  - npm run dev
+- npm install
+- npm run dev
 
 ## Intro
 
@@ -22,26 +20,28 @@
 
 ### Notes
 
-- localStorage is used to simulate persistent updates upon page reload (ex: availability toggling persists)
-- Contexts OpenCartContext and MenuDataContext were implemented to avoid prop drilling
+- Currently, all 5 core tasks completed. Bonus: Responsive layout and Modal view
+- localStorage is used to simulate persistent data upon page refresh (ex: cart items) and updates (ex: availability toggling)
+- OpenCartContext, MenuDataContext and CartItemsContext were implemented to avoid prop drilling
+- useCart custom hook created to handle local state management for cart
 - useAvailabilityToggle custom hook created to handle availability toggling
-- Static assets (menu item images) are handled via public dir as per Vite docs https://vite.dev/guide/assets
 
-### Further work to do
+### Further to dos / improvements
 
+- Disable checkout button if items have been disabled after adding them to cart
+- Search and Sort
 - Minimize rerenders
 - Fix linting errors
 - Add component unit tests
-- Buttons directly on cards for adding items to cart
+- Buttons directly on cards for interacting with the cart
 
-#### Credits. 🚀 Tech Stack upgrades
+#### Credits + Tech Stack upgrades 🚀
 
 - Added [shadcn/ui](https://ui.shadcn.com/) components to go along the recommended tech stack
 - [useMediaQuery](https://usehooks.com/usemediaquery) hook is used to change the Carousel orientation to horizontal on screens < sm (640px), and other necessary adjustments that couldn't be made with tailwind breakpoints
-- [Cart](https://www.npmjs.com/package/react-use-cart) state management with localStorage persistence
 - Custom shadcn modal/drawer made by [credenza](https://github.com/redpangilinan/credenza)
-- Images:
+- Static assets (menu item images) are handled via public dir as per Vite docs https://vite.dev/guide/assets
   - compressed using: https://compressimage.io/
   - cola: https://www.pexels.com/photo/can-of-coca-cola-24860316/
   - lemonade: https://www.pexels.com/photo/glass-with-fresh-cold-lemonade-8679581/
-  - food: https://www.recraft.ai/
+  - food created with AI tool: https://www.recraft.ai/

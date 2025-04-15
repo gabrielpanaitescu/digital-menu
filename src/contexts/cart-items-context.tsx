@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 export type CartItem = {
   id: string
@@ -30,6 +30,16 @@ type PropTypes = {
 
 export const CartItemsProvider = ({ children }: PropTypes) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
+
+  useEffect(() => {
+    const localData = localStorage.getItem('cartItems')
+
+    if (localData) {
+      const parsedData = JSON.parse(localData)
+      setCartItems(parsedData)
+    }
+  }, [])
+
   return (
     <CartItemsContext.Provider value={{ cartItems, setCartItems }}>
       {children}
