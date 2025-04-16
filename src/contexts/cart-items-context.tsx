@@ -19,7 +19,7 @@ export const useCartItems = () => {
   const state = useContext(CartItemsContext)
 
   if (!state)
-    throw new Error('useCartItems must be used within MenuDataContextProvider')
+    throw new Error('useCartItems must be used within CartItemsProvider')
 
   return state
 }

@@ -36,13 +36,18 @@ const Home = () => {
           satisfy your craving. Two classics, both top quality, under the same
           roof!
         </p>
-        <Button variant="default" size="lg" onClick={navigateToMenu}>
+        <Button
+          variant="default"
+          size="lg"
+          className="p-4 text-md sm:font-semibold sm:p-6"
+          onClick={navigateToMenu}
+        >
           START ORDER
         </Button>
         <img
           src={codeSnap}
           alt="code-snippet"
-          className="rounded-md w-96 hidden sm:block"
+          className="rounded-md hidden max-w-lg w-full sm:block"
         />
       </div>
       <div className="sm:flex sm:my-auto">

@@ -58,6 +58,11 @@ const useCart = () => {
     localStorage.setItem('cartItems', JSON.stringify(newCartItems))
   }
 
+  const clearCart = () => {
+    setCartItems([])
+    localStorage.removeItem('cartItems')
+  }
+
   const getCartProducts = (): CartProductType[] => {
     const productsInCart = menuData
       .flatMap((category) => category.products)
@@ -83,6 +88,7 @@ const useCart = () => {
     addToCart,
     removeItem,
     updateItem,
+    clearCart,
     getCartProducts,
     getCartTotal
   }

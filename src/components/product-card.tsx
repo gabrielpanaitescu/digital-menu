@@ -40,9 +40,9 @@ const ProductCard = ({ product }: PropTypes) => {
                   product.available ? 'bg-green-500 ' : 'bg-red-500'
                 }`}
               ></span>
-              <CardTitle className="text-sm">{product.name}</CardTitle>
+              <CardTitle>{product.name}</CardTitle>
             </div>
-            <CardDescription className="truncate text-[0.8em] block">
+            <CardDescription className="truncate block">
               {product.description}
             </CardDescription>
           </CardHeader>

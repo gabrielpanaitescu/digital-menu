@@ -67,7 +67,7 @@ const ProductModal = ({ product, open, setOpen }: PropTypes) => {
             <CredenzaTitle>{product.name}</CredenzaTitle>
             <Price value={product.price} />
           </div>
-          <CredenzaDescription className="font-semibold">
+          <CredenzaDescription className="font-semibold text-[0.95rem]">
             {product.description}
           </CredenzaDescription>
         </CredenzaHeader>
@@ -78,7 +78,7 @@ const ProductModal = ({ product, open, setOpen }: PropTypes) => {
               checked={product.available}
               onCheckedChange={() => handleToggleAvailability(product.id)}
             />
-            <Label>Available</Label>
+            <Label className="text-[1rem]">Available</Label>
           </div>
           <div>
             {product.available ? (
@@ -87,26 +87,33 @@ const ProductModal = ({ product, open, setOpen }: PropTypes) => {
                 onChange={handleQuantityChange}
               />
             ) : (
-              <p className="text-sm font-medium leading-none text-center">
+              <p className="font-medium leading-none text-center text-red-600">
                 Sorry, this item is not available at the moment.
               </p>
             )}
           </div>
         </CredenzaBody>
-        <CredenzaFooter className="flex flex-row">
+        <CredenzaFooter className="flex flex-row mt-2">
           <CredenzaClose asChild>
-            <Button className="flex-1">Cancel</Button>
+            <Button size="lg" className="flex-1 text-md">
+              Cancel
+            </Button>
           </CredenzaClose>
           <CredenzaClose asChild>
             {product.available ? (
               <Button
-                className={'bg-green-700 hover:bg-green-600 flex-1'}
+                size="lg"
+                className={'bg-green-700 hover:bg-green-600 flex-1 text-md'}
                 onClick={handleAddToCart}
               >
                 <ShoppingCartIcon /> ${(finalPrice * quantity).toFixed(2)}
               </Button>
             ) : (
-              <Button disabled className={'bg-red-500 flex-1'}>
+              <Button
+                size="lg"
+                disabled
+                className={'bg-red-500 flex-1 text-md'}
+              >
                 <XCircleIcon /> N/A
               </Button>
             )}

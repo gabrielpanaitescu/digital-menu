@@ -8,33 +8,35 @@
 
 ## Start
 
-- npm install
-- npm run dev
+- Preview live: https://stacked-or-sliced.fly.dev/
+- Local dev environment:
+  - npm install
+  - npm run dev
 
 ## Intro
 
-- Fully responsive on all devices, supporting screen sizes as low as 300px
-- Dynamic product details displayed as modals for larger than medium screen and drawers for everything smaller
 - This website is designed to be used from a mobile phone, tablet or PC by:
   - Customers as 'clients' in order to view the menu and order
-  - Staff as 'admins' (default as no auth is implemented) in order to make modifications (ex: change menu availability).
+  - Staff as 'admins' (implicit default as no auth is implemented) in order to make modifications (ex: change menu availability)
 
 ### Notes
 
 - All core tasks completed. Bonus: Responsive layout and Modal view
-- localStorage is used to simulate persistent data upon page refresh (ex: cart items) and updates (ex: availability toggling)
-- useContext was used to avoid prop drilling, with custom implemented hooks:
-  - useCart custom hook created to handle local state management for cart
-  - useAvailabilityToggle custom hook created to handle availability toggling
+- Fully responsive on all devices, supporting screen sizes as low as 300px
+- Product details displayed dynamically as drawers for mobiles and tablets vs modals for desktops
+- localStorage is used to simulate persistent data storage upon page refresh (ex: cart items) and updates (ex: availability toggling)
+- Locally managed state with useContext being used to avoid prop drilling
+- Custom hooks implemented:
+  - useCart hook created to handle local state management for cart
+  - useMenuData hook created to manage menu products data, as the single source of truth for the latest updated info (ex: availability)
+  - useAvailabilityToggle hook created to handle availability toggling
 
 ### Further to dos / improvements
 
-- Disable checkout button if items have been disabled after adding them to cart
 - Search and Sort
-- Buttons directly on cards for interacting with the cart
+- Buttons directly on product cards for interacting with the cart
 - Reduce rerenders
-- Fix linting errors
-- Add component unit tests
+- Add component unit tests, fix linting errors
 
 #### Credits + Tech Stack upgrades 🚀
 

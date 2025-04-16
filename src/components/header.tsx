@@ -27,8 +27,8 @@ const Header = () => {
           <span className="text-[0.80em] ">🍕</span>d
         </h3>
       )}
-      <Button onClick={handleOpenCart}>
-        <HandPlatter />${cartTotal}
+      <Button onClick={handleOpenCart} className="text-md px-2.5 sm:p-4">
+        <HandPlatter style={{ width: '18px', height: '18px' }} />${cartTotal}
       </Button>
     </div>
   )

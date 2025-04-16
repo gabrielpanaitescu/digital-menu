@@ -26,7 +26,11 @@ const CartProduct = ({ product }: PropTypes) => {
 
   return (
     <div>
-      <div className="flex items-center justify-between border-b">
+      <div
+        className={`flex items-center justify-between border-b ${
+          !product.available && 'text-red-500'
+        }`}
+      >
         <div className="flex">
           <p>{product.quantity}x</p>
           <p className="ml-1.5">{product.name}</p>
@@ -42,6 +46,7 @@ const CartProduct = ({ product }: PropTypes) => {
           Remove
         </Button>
         <QuantityInputBasic
+          disabled={!product.available}
           className="text-sm text-gray-700"
           quantity={quantity}
           onChange={handleQuantityChange}
