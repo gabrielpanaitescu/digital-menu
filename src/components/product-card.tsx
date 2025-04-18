@@ -10,11 +10,11 @@ import ProductModal from './product-modal'
 import Price from './price'
 import { useState } from 'react'
 
-type PropTypes = {
+interface Props {
   product: Product
 }
 
-const ProductCard = ({ product }: PropTypes) => {
+const ProductCard = ({ product }: Props) => {
   const [open, setOpen] = useState(false)
 
   const handleOpenModal = () => {
@@ -36,13 +36,13 @@ const ProductCard = ({ product }: PropTypes) => {
           <CardHeader>
             <div className="flex items-center">
               <span
-                className={`w-2 h-2 me-1 rounded-full ${
+                className={`min-w-2 h-2 me-1 rounded-full ${
                   product.available ? 'bg-green-500 ' : 'bg-red-500'
                 }`}
               ></span>
-              <CardTitle>{product.name}</CardTitle>
+              <CardTitle className="truncate">{product.name}</CardTitle>
             </div>
-            <CardDescription className="truncate block">
+            <CardDescription className="truncate">
               {product.description}
             </CardDescription>
           </CardHeader>

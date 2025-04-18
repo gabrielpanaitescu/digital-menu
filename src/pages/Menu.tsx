@@ -3,56 +3,62 @@ import MenuCategorySection from '@/components/category-section'
 import Header from '@/components/header'
 import { Separator } from '@/components/ui/separator'
 import { useMenuData } from '@/contexts/menu-data-context'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
+
 import { useState } from 'react'
 import { Toaster } from '@/components/ui/toaster'
+import MenuBar from '@/components/menu-bar'
 
 const Menu = () => {
   const [data] = useMenuData()
-  const [categorySelect, setCategorySelect] = useState<null | string>('All')
+  const [categorySelect, setCategorySelect] = useState<string>('All')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [priceSort, setPriceSort] = useState('')
 
-  const categoryList = data.map((category) => category.name)
+  let dataToRender = data
 
-  const selectedCategory =
-    categorySelect === 'All'
-      ? data
-      : data.filter((category) => category.name === categorySelect)
+  if (categorySelect !== 'All')
+    dataToRender = dataToRender.filter(
+      (category) => category.name === categorySelect
+    )
+
+  if (searchQuery) {
+    dataToRender = dataToRender.map((category) => ({
+      ...category,
+      products: category.products.filter((product) =>
+        product.name.toUpperCase().includes(searchQuery.toUpperCase())
+      )
+    }))
+  }
+
+  if (priceSort) {
+    dataToRender = dataToRender.map((category) => ({
+      ...category,
+      products: category.products.sort((productA, productB) => {
+        return priceSort === 'priceAsc'
+          ? productA.price - productB.price
+          : productB.price - productA.price
+      })
+    }))
+  }
 
   return (
     <>
       <Cart />
       <Header />
       <Toaster />
-      <div className="gap-x-2 pb-2 pt-2 sticky top-12 bg-white z-40 container mx-auto px-4 mt-24 sm:px-6">
-        <div className="flex items-center gap-4">
-          <h2 className="text-2xl font-semibold tracking-tight first:mt-0">
-            Menu
-          </h2>
-          <Select onValueChange={setCategorySelect}>
-            <SelectTrigger className="w-[110px]">
-              <SelectValue placeholder="Category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="All">All</SelectItem>
-              {categoryList.map((category, index) => (
-                <SelectItem value={category} key={category + index}>
-                  {category}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <Separator />
-      </div>
+      <MenuBar
+        data={data}
+        categorySelect={categorySelect}
+        setCategorySelect={setCategorySelect}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        priceSort={priceSort}
+        setPriceSort={setPriceSort}
+      />
       <div className="mt-4 container mx-auto px-4 sm:px-8 lg:px-14">
-        {selectedCategory.map((category, index) => {
+        {dataToRender.map((category, index) => {
           return (
+            // category.products.length > 0 && // do not show category at all if no products match the search query
             <div key={category.id}>
               {index > 0 && <Separator className="my-9" />}
               <MenuCategorySection category={category} />

@@ -16,11 +16,11 @@ export const useMenuData = () => {
   return state
 }
 
-type PropTypes = {
+interface Props {
   children: React.ReactNode
 }
 
-export const MenuDataContextProvider = ({ children }: PropTypes) => {
+export const MenuDataContextProvider = ({ children }: Props) => {
   const [data, setData] = useState<MenuCategory[]>(menuData)
 
   useEffect(() => {

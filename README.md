@@ -21,7 +21,7 @@
 
 ### Notes
 
-- All core tasks completed. Bonus: Responsive layout and Modal view
+- All core tasks completed. Bonus: Responsive layout, Modal view, Search and Sort
 - Fully responsive on all devices, supporting screen sizes as low as 300px
 - Product details displayed dynamically as drawers for mobiles and tablets vs modals for desktops
 - localStorage is used to simulate persistent data storage upon page refresh (ex: cart items) and updates (ex: availability toggling)
@@ -33,7 +33,6 @@
 
 ### Further to dos / improvements
 
-- Search and Sort
 - Buttons directly on product cards for interacting with the cart
 - Reduce rerenders
 - Add component unit tests, fix linting errors

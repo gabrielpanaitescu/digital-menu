@@ -21,13 +21,13 @@ import { useAvailabilityToggle } from '@/hooks/use-menu'
 import { useCart } from '@/hooks/use-cart'
 import { useOpenCart } from '@/hooks/use-cart'
 
-type PropTypes = {
+interface Props {
   product: Product
   open: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ProductModal = ({ product, open, setOpen }: PropTypes) => {
+const ProductModal = ({ product, open, setOpen }: Props) => {
   const [quantity, setQuantity] = useState(1)
   const [finalPrice, setFinalPrice] = useState(product.price)
   const toggleAvailability = useAvailabilityToggle()

@@ -15,11 +15,11 @@ export const useOpenCart = () => {
   return state
 }
 
-type PropTypes = {
+interface Props {
   children: React.ReactNode
 }
 
-export const OpenCartContextProvider = ({ children }: PropTypes) => {
+export const OpenCartContextProvider = ({ children }: Props) => {
   const [open, setOpenDispatch] = useState(false)
 
   return (

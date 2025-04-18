@@ -24,11 +24,11 @@ export const useCartItems = () => {
   return state
 }
 
-type PropTypes = {
+interface Props {
   children: React.ReactNode
 }
 
-export const CartItemsProvider = ({ children }: PropTypes) => {
+export const CartItemsProvider = ({ children }: Props) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
 
   useEffect(() => {

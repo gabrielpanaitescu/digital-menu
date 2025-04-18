@@ -3,11 +3,11 @@ import { Button } from './ui/button'
 import QuantityInputBasic from './ui/quantity-input-basic'
 import { useEffect, useState } from 'react'
 
-type PropTypes = {
+interface Props {
   product: CartProductType
 }
 
-const CartProduct = ({ product }: PropTypes) => {
+const CartProduct = ({ product }: Props) => {
   const [quantity, setQuantity] = useState(product.quantity)
 
   const { updateItem, removeItem } = useCart()
