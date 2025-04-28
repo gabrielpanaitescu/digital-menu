@@ -11,10 +11,13 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     setupFiles: '.vitest/setup',
-    include: ['**/test.{ts,tsx}'],
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@assets': path.resolve(__dirname, './src/assets')
-    }
+    include: ['**/test.{ts,tsx}']
   }
+  ////  redundant since its already delcared in tsconfig.json + using tsconfigPaths() plugin
+  // resolve: {
+  //   alias: {
+  //     '@': path.resolve(__dirname, './src'),
+  //     '@assets': path.resolve(__dirname, './src/assets')
+  //   }
+  // }
 })

@@ -48,7 +48,7 @@ const MenuBar = ({
   }
 
   return (
-    <div className="pt-2 sticky top-12 bg-white z-40 container mx-auto px-4 mt-24 sm:px-6">
+    <div className="pt-2 sticky top-12 z-40 container mx-auto px-4 mt-24 sm:px-6">
       <div className="flex items-center gap-2">
         <h2
           className={`text-2xl font-semibold tracking-tight first:mt-0 ${

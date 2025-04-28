@@ -42,7 +42,7 @@ const Menu = () => {
   }
 
   return (
-    <>
+    <div className="">
       <Cart />
       <Header />
       <Toaster />
@@ -66,7 +66,7 @@ const Menu = () => {
           )
         })}
       </div>
-    </>
+    </div>
   )
 }
 

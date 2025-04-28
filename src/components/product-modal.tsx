@@ -103,7 +103,9 @@ const ProductModal = ({ product, open, setOpen }: Props) => {
             {product.available ? (
               <Button
                 size="lg"
-                className={'bg-green-700 hover:bg-green-600 flex-1 text-md'}
+                className={
+                  'text-black bg-green-600 hover:bg-green-500 flex-1 text-md'
+                }
                 onClick={handleAddToCart}
               >
                 <ShoppingCartIcon /> ${(finalPrice * quantity).toFixed(2)}

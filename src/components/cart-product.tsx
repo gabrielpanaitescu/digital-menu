@@ -40,7 +40,7 @@ const CartProduct = ({ product }: Props) => {
       <div className="flex justify-between">
         <Button
           size="sm"
-          className="bg-gray-200 text-black p-2 hover:text-white"
+          className="text-black bg-gray-200 p-2 hover:text-white"
           onClick={handleRemoveItem}
         >
           Remove

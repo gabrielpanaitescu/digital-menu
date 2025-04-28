@@ -60,7 +60,7 @@ const Cart = () => {
         )}
 
         {hasUnavailableProduct && (
-          <SheetDescription className="font-bold text-black/75">
+          <SheetDescription className="font-bold text-foreground/75">
             <CircleAlertIcon
               className="inline-block mr-1"
               color="red"
@@ -86,7 +86,7 @@ const Cart = () => {
             disabled={hasUnavailableProduct || cartProducts.length === 0}
             size="lg"
             className={
-              'text-[1rem] font-semibold bg-green-700 hover:bg-green-600 w-full'
+              'text-[1rem] text-foreground font-semibold bg-green-600 hover:bg-green-500 w-full'
             }
           >
             <CreditCardIcon style={{ width: '20px', height: '20px' }} /> Confirm
