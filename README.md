@@ -33,9 +33,9 @@
 
 ### Further to dos / improvements
 
-- Buttons directly on product cards for interacting with the cart
-- Reduce rerenders
-- Add component unit tests, fix linting errors
+- Buttons directly on product cards for interacting with the cart.
+- Reduce rerenders.
+- Add component unit tests, fix linting errors.
 
 #### Credits + Tech Stack upgrades 🚀
 
